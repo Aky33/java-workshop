@@ -3,17 +3,22 @@ package com.calculator.calculator.controller;
 //import com.example.demo.model.User;
 import org.springframework.web.bind.annotation.*;
 
+import com.calculator.calculator.model.Input;
+import com.calculator.calculator.model.Output;
+import com.calculator.calculator.service.CalculatorService;
+
 //import java.util.*;
 
 @RestController
 @RequestMapping("/")
 public class CalculatorController {
+    private CalculatorService service = new CalculatorService();
 
     //private List<User> users = new ArrayList<>();
 
-    @GetMapping
-    public String helloWorld() {
-        return "Hello World";
+    @PostMapping
+    public Output vypocet(@RequestBody Input input) {
+        return service.calculateMortgage(input);
     }
 
     /*@GetMapping
