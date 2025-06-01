@@ -4,6 +4,7 @@ package com.calculator.calculator.controller;
 import org.springframework.web.bind.annotation.*;
 
 import com.calculator.calculator.model.Input;
+import com.calculator.calculator.model.IntervalSplaceni;
 import com.calculator.calculator.model.Output;
 import com.calculator.calculator.service.CalculatorService;
 
@@ -15,6 +16,11 @@ public class CalculatorController {
     private CalculatorService service = new CalculatorService();
 
     //private List<User> users = new ArrayList<>();
+
+    @GetMapping("/intervali-splaceni")
+    public IntervalSplaceni[] intervaliSplaceni() {
+        return IntervalSplaceni.values();
+    }
 
     @PostMapping
     public Output vypocet(@RequestBody Input input) {

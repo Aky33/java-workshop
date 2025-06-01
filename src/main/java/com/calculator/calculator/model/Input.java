@@ -1,51 +1,38 @@
 package com.calculator.calculator.model;
 
 public class Input {
+    //Výše úvěru
     private Double vyseHypoteky;
+    //Úroková míra, e.g. 5,00%
+    private Double urokovaMira;
+    //Doba splácení, e.g. 30let
     private Integer dobaSplaceni;
-    private Integer dobaFixace;
-    private Double vyseSplatky;
+
+    private IntervalSplaceni intervalSplaceni;
 
     public Input() {
 
     }
 
-    public Input(Double vyseHypoteky, Integer dobaSplaceni, Integer dobaFixace, Double vyseSplatky) {
+    public Input(Double vyseHypoteky, Double urokovaMira, Integer dobaSplaceni) {
         this.vyseHypoteky = vyseHypoteky;
+        this.urokovaMira = urokovaMira;
         this.dobaSplaceni = dobaSplaceni;
-        this.dobaFixace = dobaFixace;
-        this.vyseSplatky = vyseSplatky;
     }
 
     public Double getVyseHypoteky() {
         return vyseHypoteky;
     }
 
+    public Double getUrokovaMira() {
+        return urokovaMira / 100.0;   //Předpokládáme že od uživatele přijde jako procenta
+    }
+
     public Integer getDobaSplaceni() {
         return dobaSplaceni;
     }
 
-    public Integer getDobaFixace() {
-        return dobaFixace;
-    }
-
-    public Double getVyseSplatky() {
-        return vyseSplatky;
-    }
-
-    public void setVyseHypoteky(Double vyseHypoteky) {
-        this.vyseHypoteky = vyseHypoteky;
-    }
-
-    public void setDobaSplaceni(Integer dobaSplaceni) {
-        this.dobaSplaceni = dobaSplaceni;
-    }
-
-    public void setDobaFixace(Integer dobaFixace) {
-        this.dobaFixace = dobaFixace;
-    }
-
-    public void setVyseSplatky(Double vyseSplatky) {
-        this.vyseSplatky = vyseSplatky;
+    public IntervalSplaceni getIntervalSplaceni() {
+        return intervalSplaceni;
     }
 }
